@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: "Josefin Sans", sans-serif;
+            background-color: #fafafa;
+        }
+        
+        /* Style personnalisé pour les checkbox */
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        input[type="checkbox"]:checked {
+            background: linear-gradient(135deg, #57ddff, #c058f3);
+            border: none;
+        }
+        
+        input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-top: -2px;
+        }
+        
+        .input-circle {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        /* Style pour les boutons de suppression */
+        .delete-btn {
+            opacity: 1;
+            transition: opacity 0.2s;
+            margin-left: auto;
+        }
+        
+        li:hover .delete-btn {
+            opacity: 1;
+        }
+        
+        /* Style pour la bannière */
+        .banner {
+            height: 25vh;
+            min-height: 250px;
+            width: 100%;
+            background-image: linear-gradient(to right, rgba(172, 45, 235, 0.7), rgba(85, 150, 255, 0.7)), 
+                              url('assets/IMG/nature.png');
+            background-size: 370% auto;
+            background-position: center 43%; 
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100">
+
+    <!-- Bannière -->
+    <div class="banner"></div>
+
+    <!-- main -->
+    <div class="container mx-auto px-8 max-w-xl -mt-[12.5rem]">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-10">
+            <h1 class="text-4xl font-bold text-white ">T O D O</h1>
+            <button class="text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+                    <path fill="#FFF" fill-rule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Input pour nouveau todo -->
+        <div class="bg-white rounded-md shadow-md mb-6">
+            <div class="p-4 border-b flex items-center">
+                <div class="input-circle"></div>
+                <input type="text" placeholder="Create a new todo..." class="w-full outline-none text-gray-700 placeholder-gray-400">
+            </div>
+        </div>
+
+        <!-- Liste des tâches -->
+        <div class="bg-white rounded-md shadow-md">
+            <div class="p-4 border-b flex items-center group">
+                <input type="checkbox" checked class="mr-3">
+                <span class="flex-1 line-through text-gray-400">Complete online JavaScript course</span>
+                <button class="delete-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                      
+                </button>
+            </div>
+            
+            <div class="p-4 border-b flex items-center group">
+                <input type="checkbox" class="mr-3">
+                <span class="flex-1 text-gray-700">Jog around the park 3x</span>
+                <button class="delete-btn text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                      
+                </button>
+            </div>
+            
+            <div class="p-4 border-b flex items-center group">
+                <input type="checkbox" class="mr-3">
+                <span class="flex-1 text-gray-700">10 minutes meditation</span>
+                <button class="delete-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                      
+                </button>
+            </div>
+            
+            <div class="p-4 border-b flex items-center group">
+                <input type="checkbox" class="mr-3">
+                <span class="flex-1 text-gray-700">Read for 1 hour</span>
+                <button class="delete-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                      
+                </button>
+            </div>
+            
+            <div class="p-4 border-b flex items-center group">
+                <input type="checkbox" class="mr-3">
+                <span class="flex-1 text-gray-700">Pick up groceries</span>
+                <button class="delete-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                      
+                </button>
+            </div>
+            
+            <div class="p-4 border-b flex items-center group">
+                <input type="checkbox" class="mr-3">
+                <span class="flex-1 text-gray-700">Complete Todo App on Frontend Mentor</span>
+                <button class="delete-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg> 
+                </button>
+            </div>
+
+            <!-- Footer mobile -->
+            <div class="p-4 flex justify-between items-center text-sm text-gray-500">
+                <span>5 items left</span>
+                <button class="hover:text-gray-700">Clear Completed</button>
+            </div>
+        </div>
+
+        <!-- Filtres pour mobile -->
+        <div class="bg-white rounded-md shadow-md mt-4 p-4 flex justify-center space-x-4 sm:hidden">
+            <button class="font-bold text-blue-500">All</button>
+            <button class="text-gray-500 hover:text-gray-700">Active</button>
+            <button class="text-gray-500 hover:text-gray-700">Completed</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
