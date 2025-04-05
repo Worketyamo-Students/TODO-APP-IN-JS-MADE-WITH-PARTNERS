@@ -1,4 +1,6 @@
-const containerprincipal = document.querySelector('body');
+const question =document.querySelector("#todo");
+console.log(question);
+question.style.background = "yellow"const containerprincipal = document.querySelector('body');
 const todoInput = document.getElementById('todoInput');
 const todotext = document.getElementById('todotext');
 const itemsLeft = document.getElementById('itemsLeft');
