@@ -1,6 +1,4 @@
-const question =document.querySelector("#todo");
-console.log(question);
-question.style.background = "yellow"const containerprincipal = document.querySelector('body');
+document.querySelector('body');
 const todoInput = document.getElementById('todoInput');
 const todotext = document.getElementById('todotext');
 const itemsLeft = document.getElementById('itemsLeft');
@@ -24,8 +22,7 @@ todoInput.addEventListener('keydown', (e) => {
             for (let i = 0; i < todos.length; i++) {
                 // Create a list item for each todo
                 const li = todotextbox.cloneNode(true);
-                li.style.display = 'flex'; 
-                 // rendre la liste visible
+                li.style.display = 'flex'; // rendre la liste visible
                 li.id = '';
         
                 const textSpan = li.querySelector('#todotext');
