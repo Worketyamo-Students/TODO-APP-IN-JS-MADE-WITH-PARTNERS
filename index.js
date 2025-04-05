@@ -36,13 +36,17 @@ todoInput.addEventListener('keydown', (e) => {
                 });
                 
                 todoList.appendChild(li);
-                itemsLeft.innerHTML = todos.length + " items left"
+
             }
-         
+            itemsLeft.textContent = todos.length + " items left";
+
         }
         
     // metre a jour la liste
         showTodos();                  
     }
+
 });
+
+
 
