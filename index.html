@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -80,7 +81,8 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-gray-100">
+
+<body class="min-h-screen bg-gray-100 ">
 
     <!-- Bannière -->
     <div class="banner"></div>
@@ -90,7 +92,7 @@
         <!-- Header -->
         <div class="flex justify-between items-center mb-10">
             <h1 class="text-4xl font-bold text-white ">T O D O</h1>
-            <button class="text-white">
+            <button class="text-white " id="darktoggle">
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
                     <path fill="#FFF" fill-rule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/>
                 </svg>
@@ -98,90 +100,48 @@
         </div>
 
         <!-- Input pour nouveau todo -->
-        <div class="bg-white rounded-md shadow-md mb-6">
-            <div class="p-4 border-b flex items-center">
+        <div class="bg-white rounded-md shadow-md mb-6 ">
+            <div id="box" class="p-4 border-b flex items-center">
                 <div class="input-circle"></div>
-                <input type="text" placeholder="Create a new todo..." class="w-full outline-none text-gray-700 placeholder-gray-400">
+                <input id="todoInput" type="text" placeholder="Create a new todo..." class="w-full outline-none text-gray-700 placeholder-gray-400">
             </div>
         </div>
 
         <!-- Liste des tâches -->
-        <div class="bg-white rounded-md shadow-md">
-            <div class="p-4 border-b flex items-center group">
-                <input type="checkbox" checked class="mr-3">
-                <span class="flex-1 line-through text-gray-400">Complete online JavaScript course</span>
+        <div  class="bg-white rounded-md shadow-md">
+            <!-- Liste -->
+            <ul id="todoList"></ul>
+            <li id ="todotextbox"  class="p-4 border-b hidden items-center group ">
+                <input class="todo-checkbox" type="checkbox" checked class="mr-3">
+                <span id="todotext"  class="flex-1  text-gray-400">Complete online JavaScript course</span>
                 <button class="delete-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>                      
                 </button>
-            </div>
+            </li>
             
-            <div class="p-4 border-b flex items-center group">
-                <input type="checkbox" class="mr-3">
-                <span class="flex-1 text-gray-700">Jog around the park 3x</span>
-                <button class="delete-btn text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>                      
-                </button>
-            </div>
-            
-            <div class="p-4 border-b flex items-center group">
-                <input type="checkbox" class="mr-3">
-                <span class="flex-1 text-gray-700">10 minutes meditation</span>
-                <button class="delete-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>                      
-                </button>
-            </div>
-            
-            <div class="p-4 border-b flex items-center group">
-                <input type="checkbox" class="mr-3">
-                <span class="flex-1 text-gray-700">Read for 1 hour</span>
-                <button class="delete-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>                      
-                </button>
-            </div>
-            
-            <div class="p-4 border-b flex items-center group">
-                <input type="checkbox" class="mr-3">
-                <span class="flex-1 text-gray-700">Pick up groceries</span>
-                <button class="delete-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>                      
-                </button>
-            </div>
-            
-            <div class="p-4 border-b flex items-center group">
-                <input type="checkbox" class="mr-3">
-                <span class="flex-1 text-gray-700">Complete Todo App on Frontend Mentor</span>
-                <button class="delete-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg> 
-                </button>
-            </div>
+
+          
 
             <!-- Footer mobile -->
             <div class="p-4 flex justify-between items-center text-sm text-gray-500">
-                <span>5 items left</span>
+                <span id="itemsLeft">5 items left</span>
                 <button class="hover:text-gray-700">Clear Completed</button>
             </div>
         </div>
 
         <!-- Filtres pour mobile -->
         <div class="bg-white rounded-md shadow-md mt-4 p-4 flex justify-center space-x-4 sm:hidden">
-            <button class="font-bold text-blue-500">All</button>
-            <button class="text-gray-500 hover:text-gray-700">Active</button>
-            <button class="text-gray-500 hover:text-gray-700">Completed</button>
+            <button  class="filter font-bold text-blue-500">All</button>
+            <button  class="filter text-gray-500 hover:text-gray-700">Active</button>
+            <button id="clearCompleted" class="text-gray-500 hover:text-gray-700">Completed</button>
         </div>
+
+         <button id="clearCompleted">Clear Completed</button>
 
     </div>
 
+<script src="./index.js"></script>
 </body>
 </html>
