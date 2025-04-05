@@ -5,6 +5,7 @@ const itemsLeft = document.getElementById('itemsLeft');
 const clearCompletedBtn = document.getElementById('clearCompleted');
 const filterButtons = document.querySelectorAll('.filter');
 const button = document.querySelector('.delete-btn');
+let inputcircle = document.getElementById( 'input-circle')
 
 const todotextbox =document.getElementById('todotextbox');
 const todoList = document.getElementById('todoList');    
@@ -13,10 +14,19 @@ const checkrol = document.getElementsByClassName('todo-checkbox');
 
 let todos = [];  // Array/ tableaux pour stocker mes elements
 // un nuveaux element quand on appuis sur entré
-todoInput.addEventListener('keydown', (e) => {
+todoInput.addEventListener('keydown', (e) => { 
+
+    if (todoInput.value.length<4){
+        inputcircle.style.background = ''
+    } else{
+        inputcircle.style.background = 'linear-gradient(135deg, #55DDFF 0%, #C058F3 100%)';
+ 
+    }
     if (e.key === 'Enter' && todoInput.value !== '') {
         todos.push(todoInput.value);  // Add the text to array
         todoInput.value = ''; 
+        inputcircle.style.background = ''
+        
         function showTodos() {
             todoList.innerHTML = ''; 
              // effacer la  liste courante
