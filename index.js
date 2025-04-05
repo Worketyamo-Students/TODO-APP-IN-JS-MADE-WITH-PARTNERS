@@ -9,6 +9,8 @@ const button = document.querySelector('.delete-btn');
 const todotextbox =document.getElementById('todotextbox');
 const todoList = document.getElementById('todoList');    
 
+const checkrol = document.getElementsByClassName('todo-checkbox');
+
 let todos = [];  // Array/ tableaux pour stocker mes elements
 // un nuveaux element quand on appuis sur entré
 todoInput.addEventListener('keydown', (e) => {
@@ -47,6 +49,7 @@ todoInput.addEventListener('keydown', (e) => {
     }
 
 });
+
 
 
 
