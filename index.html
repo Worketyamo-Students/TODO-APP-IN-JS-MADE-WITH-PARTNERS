@@ -14,6 +14,43 @@
             font-family: "Josefin Sans", sans-serif;
             background-color: #fafafa;
         }
+
+        body {
+            font-family: "Josefin Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s,linear color 400ms;
+        }
+
+        #light {
+            background-color: #fafafa;
+            color: black;
+        }
+
+        #dark {
+            background-color: #171823;
+            color: #cacde8;
+        }
+
+        #dark .bg-white {
+            background-color: #25273c;
+        }
+
+        #dark .text-gray-700 {
+            color: #cacde8;
+        }
+
+        #dark .text-gray-400 {
+            color: #777a92;
+        }
+
+        #dark .border-b {
+            border-color: #393a4c;
+        }
+
+        #dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
         
         /* Style personnalisé pour les checkbox */
         input[type="checkbox"] {
@@ -74,7 +111,7 @@
             min-height: 250px;
             width: 100%;
             background-image: linear-gradient(to right, rgba(172, 45, 235, 0.7), rgba(85, 150, 255, 0.7)), 
-                              url('assets/IMG/nature.png');
+                              url('x');
             background-size: 370% auto;
             background-position: center 43%; 
             background-repeat: no-repeat;
@@ -87,10 +124,13 @@
     </style>
 </head>
 
-<body class="min-h-screen bg-gray-100 ">
+<body class="min-h-screen bg-gray-100 " id="light">
 
     <!-- Bannière -->
-    <div class="banner"></div>
+    <div class="banner" > 
+    <img src="./assets/IMG/Bitmap (2).svg" alt="" class="w-full" id="imgdarkmode"> 
+    <img src="./assets/IMG/nature.png" alt="">
+    </div>
 
     <!-- main -->
     <div class="container mx-auto px-8 max-w-xl -mt-[12.5rem] ">
@@ -109,7 +149,7 @@
         <div class="bg-white rounded-md shadow-md mb-6 ">
             <div id="box" class="p-4 border-b flex items-center">
                 <div class="input-circle"></div>
-                <input id="todoInput" type="text" placeholder="Create a new todo..." class="w-full outline-none text-gray-700 placeholder-gray-400">
+                <input id="todoInput" type="text" placeholder="Create a new todo..." class="w-full outline-none bg-white text-gray-700 placeholder-gray-400">
             </div>
         </div>
 
@@ -126,10 +166,7 @@
                     </svg>                      
                 </button>
             </li>
-            
-
-          
-
+        
             <!-- Footer mobile -->
             <div class="p-4 flex justify-between items-center text-sm text-gray-500">
                 <span id="itemsLeft">0 items left</span>
