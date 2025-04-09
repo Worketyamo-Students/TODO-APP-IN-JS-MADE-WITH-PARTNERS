@@ -8,7 +8,6 @@ function updateFilter(filterType) {
   tasks.forEach((task) => {
     const checkbox = task.querySelector("input[type='checkbox']");
     const isCompleted = checkbox.checked;
-
     switch (filterType) {
       case "all":
         task.style.display = "flex";
